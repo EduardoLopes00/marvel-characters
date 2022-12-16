@@ -5,6 +5,7 @@
 
 
     <app-list *ngIf="!loading && characters.length > 0" [characters]="characters"></app-list>
+    <mat-spinner color="black" class="spinner" *ngIf="loading"></mat-spinner>
 
   </div>
 </div>

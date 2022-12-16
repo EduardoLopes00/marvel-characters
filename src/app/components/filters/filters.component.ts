@@ -10,6 +10,7 @@ export class FiltersComponent implements OnInit {
   @Output() filterClick = new EventEmitter();
 
   filtersForm: FormGroup;
+  buttonLabel: string = 'Search All';
 
   constructor() {
     this.filtersForm = new FormGroup({
@@ -18,7 +19,15 @@ export class FiltersComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.filtersForm.valueChanges.subscribe((values) => {
+      this.buttonLabel = 'Filter';
+
+      if (values.name == '' && values.nameStartsWith == '') {
+        this.buttonLabel = 'Search All';
+      }
+    });
+  }
 
   handleFilterClick() {
     this.filterClick.emit(this.filtersForm.value);

@@ -17,8 +17,6 @@ export class MarvelService {
     let options = new HttpParams().set('apikey', environment.MARVEL_PUBLIC_KEY);
 
     if (filters) {
-      console.log('fqiosjiqofjqiow');
-
       Object.keys(filters).forEach((item) => {
         const filterName: FormFieldsName = item as FormFieldsName;
 
@@ -29,8 +27,6 @@ export class MarvelService {
         }
       });
     }
-
-    console.log(options);
 
     return this.http
       .get<MarvelApiResponse>(environment.MARVEL_API_URL, { params: options })

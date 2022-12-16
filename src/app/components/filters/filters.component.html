@@ -1,5 +1,5 @@
 <div class="filters-container">
-    <h1>Filters</h1>
+    <p>Filters</p>
 
     <form [formGroup]="filtersForm">
         <div>
@@ -17,10 +17,11 @@
         <div>
 
             <button (click)="handleFilterClick()" class="filter-button">
-                <span>Filter</span>
+                <span>{{buttonLabel}}</span>
                 <mat-icon>search</mat-icon>
             </button>
         </div>
     </form>
+
 
 </div>
