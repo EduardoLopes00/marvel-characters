@@ -1,0 +1,11 @@
+.fav-text {
+  color: red;
+}
+
+.hover-item {
+  transition: 1s;
+
+  :hover {
+    width: 400px;
+  }
+}

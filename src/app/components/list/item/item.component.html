@@ -1,0 +1,11 @@
+<mat-card class="card-content">
+
+    <div class="header">
+        <mat-card-title>{{character.name}}</mat-card-title>
+        <mat-icon (click)="handleFavoriteClick()" class="icon" aria-hidden="false"
+            [ngStyle]="character.isFavorite ? {'color':'red'} : null" aria-label="Example home icon" color="red"
+            [fontIcon]="character.isFavorite ? 'favorite' : 'favorite_border'">
+        </mat-icon>
+    </div>
+    <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" [alt]="character.name + ' thumb'">
+</mat-card>
