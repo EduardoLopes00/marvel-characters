@@ -2,6 +2,7 @@ import { Character } from './models/marvelapi.model';
 import { Component, OnInit } from '@angular/core';
 import { MarvelService } from './services/marvel.service';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
+import { sortCharactersByIsFavorite } from './utils/sortGetAllCharacterResponse';
 
 @Component({
   selector: 'app-root',
@@ -22,11 +23,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const container = document.getElementsByClassName('content');
-
     this.marvelService
       .getCharacters()
-      .subscribe((data) => (this.characters = data));
+      .subscribe(
+        (data) => (this.characters = sortCharactersByIsFavorite(data))
+      );
   }
 
   onScroll(event: any) {}

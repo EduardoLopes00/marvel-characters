@@ -19,27 +19,18 @@ export class ItemComponent implements OnInit {
   ngOnInit() {}
 
   handleFavoriteClick() {
-    if (this.character.isFavorite) {
-      this.favoriteListService.removeFromFavoriteList(
-        this.character.id.toString()
-      );
+    const stringCharcterId = this.character.id.toString();
+
+    try {
+      if (this.character.isFavorite) {
+        this.favoriteListService.removeFromFavoriteList(stringCharcterId);
+      } else {
+        this.favoriteListService.addToFavoriteList(stringCharcterId);
+      }
 
       this.character.isFavorite = !this.character.isFavorite;
-
-      return;
+    } catch (message) {
+      this.toastService.error(message as string, 'Error on add to favorite!');
     }
-
-    if (this.favoriteListService.hasReachedFavoriteLimit()) {
-      this.toastService.error(
-        "You can't add more than 5 favorites",
-        'Error on add to favorite!'
-      );
-
-      return;
-    }
-
-    this.favoriteListService.addToFavoriteList(this.character.id.toString());
-
-    this.character.isFavorite = !this.character.isFavorite;
   }
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { throwError } from 'rxjs';
 import { isArrayEmpty } from '../utils/isArrayEmpty';
 import { ToastService } from './toast.service';
 
@@ -15,6 +16,10 @@ export class FavoriteListService {
   };
 
   addToFavoriteList = (characterId: string): void => {
+    if (this.hasReachedFavoriteLimit()) {
+      throw new Error("You can't add more than 5 favorites");
+    }
+
     const actualFavoriteList = this.getFavoriteList();
 
     actualFavoriteList.push(characterId);
@@ -35,7 +40,7 @@ export class FavoriteListService {
     }
   };
 
-  hasReachedFavoriteLimit = () => {
+  private hasReachedFavoriteLimit = () => {
     const actualFavoriteList = this.getFavoriteList();
 
     return actualFavoriteList.length === this.maxFavorites;
