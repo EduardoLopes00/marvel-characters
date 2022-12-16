@@ -1,8 +1,10 @@
 <div class="main-container">
   <div class="content">
 
-    <app-filters></app-filters>
-    <app-list *ngIf="characters.length > 0" [characters]="characters"></app-list>
+    <app-filters (filterClick)="onFilterClick($event)"></app-filters>
+
+
+    <app-list *ngIf="!loading && characters.length > 0" [characters]="characters"></app-list>
 
   </div>
 </div>

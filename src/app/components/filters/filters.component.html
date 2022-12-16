@@ -1,1 +1,26 @@
-<p>filters works!</p>
+<div class="filters-container">
+    <h1>Filters</h1>
+
+    <form [formGroup]="filtersForm">
+        <div>
+            <mat-form-field class="form-field">
+                <mat-label class="form-field-label">Name</mat-label>
+                <input formControlName="name" matInput type="text">
+
+            </mat-form-field>
+            <mat-form-field class="form-field">
+                <mat-label class="form-field-label">Name starts With</mat-label>
+                <input formControlName="nameStartsWith" matInput type="text">
+
+            </mat-form-field>
+        </div>
+        <div>
+
+            <button (click)="handleFilterClick()" class="filter-button">
+                <span>Filter</span>
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+    </form>
+
+</div>

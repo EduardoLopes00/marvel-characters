@@ -1,4 +1,4 @@
-import { InjectionToken, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,7 +13,9 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { ToastService } from './services/toast.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,8 +32,10 @@ import { ToastService } from './services/toast.service';
     MatGridListModule,
     MatCardModule,
     MatIconModule,
+    MatInputModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    ReactiveFormsModule,
   ],
   providers: [ToastService],
   bootstrap: [AppComponent],

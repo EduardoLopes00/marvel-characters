@@ -5,6 +5,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { MarvelApiResponse, Character } from '../models/marvelapi.model';
 import { environment } from '../environment/environment';
 import { getIsFavorite } from '../utils/getIsFavorite';
+import { FormFieldsName, FormFiltersFields } from '../models/formFilters.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,11 +13,24 @@ import { getIsFavorite } from '../utils/getIsFavorite';
 export class MarvelService {
   constructor(private http: HttpClient) {}
 
-  getCharacters(filters?: string[]): Observable<Character[]> {
-    const options = new HttpParams().set(
-      'apikey',
-      environment.MARVEL_PUBLIC_KEY
-    );
+  getCharacters(filters?: FormFiltersFields): Observable<Character[]> {
+    let options = new HttpParams().set('apikey', environment.MARVEL_PUBLIC_KEY);
+
+    if (filters) {
+      console.log('fqiosjiqofjqiow');
+
+      Object.keys(filters).forEach((item) => {
+        const filterName: FormFieldsName = item as FormFieldsName;
+
+        const filterValue = filters[filterName];
+
+        if (filterValue != '') {
+          options = options.set(filterName, filterValue);
+        }
+      });
+    }
+
+    console.log(options);
 
     return this.http
       .get<MarvelApiResponse>(environment.MARVEL_API_URL, { params: options })

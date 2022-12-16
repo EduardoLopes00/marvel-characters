@@ -1,0 +1,48 @@
+.filters-container {
+  width: 100%;
+  height: 200px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-around;
+  div:nth-child(1) {
+    display: flex;
+
+    justify-content: space-around;
+  }
+  div:nth-child(2) {
+    display: flex;
+
+    justify-content: center;
+  }
+}
+
+.form-field {
+  width: 400px;
+}
+
+.form-field-label {
+  color: black;
+}
+
+.filter-button {
+  background-color: transparent;
+  width: 100px;
+  height: 30px;
+
+  font-size: 20px;
+
+  display: flex;
+  justify-content: space-around;
+
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  background-color: gray;
+
+  color: white;
+}
