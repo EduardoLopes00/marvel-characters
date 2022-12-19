@@ -16,6 +16,7 @@ export class FiltersComponent implements OnInit {
     this.filtersForm = new FormGroup({
       name: new FormControl(''),
       nameStartsWith: new FormControl(''),
+      offset: new FormControl('1'),
     });
   }
 

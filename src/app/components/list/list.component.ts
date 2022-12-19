@@ -1,5 +1,14 @@
 import { Character } from 'src/app/models/marvelapi.model';
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  ViewChild,
+} from '@angular/core';
+import { CharacterDetailDirective } from 'src/app/directives/characterDetail.directive';
+import { CharacterDetailComponent } from '../character-detail/character-detail.component';
 
 @Component({
   selector: 'app-list',
@@ -9,15 +18,19 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ListComponent implements OnInit {
   loading: boolean = true;
   @Input() characters: Character[] = [] as Character[];
-  normalCharacters: Character[] = [] as Character[];
-  favoriteCharacters: Character[] = [] as Character[];
+  @ViewChild(CharacterDetailDirective, { static: true })
+  characterDetail!: CharacterDetailDirective;
 
-  ngOnInit() {
-    this.normalCharacters = this.characters.filter(
-      (character) => character.id < 10
+  ngOnInit() {}
+
+  showCharacterDetail(character: Character) {
+    this.characterDetail.ViewContainerRef.clear();
+    const componentRef = this.characterDetail.ViewContainerRef.createComponent(
+      CharacterDetailComponent
     );
-    this.favoriteCharacters = this.characters.filter(
-      (character) => character.id > 10
-    );
+    componentRef.instance.character = character;
+    componentRef.instance.onClose.subscribe(() => {
+      this.characterDetail.ViewContainerRef.clear();
+    });
   }
 }

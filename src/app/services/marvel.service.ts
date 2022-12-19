@@ -20,9 +20,14 @@ export class MarvelService {
       Object.keys(filters).forEach((item) => {
         const filterName: FormFieldsName = item as FormFieldsName;
 
-        const filterValue = filters[filterName];
+        let filterValue = filters[filterName];
 
         if (filterValue != '') {
+          filterValue =
+            filterName == 'offset'
+              ? ((Number.parseInt(filterValue) - 1) * 20).toString()
+              : filterValue;
+
           options = options.set(filterName, filterValue);
         }
       });

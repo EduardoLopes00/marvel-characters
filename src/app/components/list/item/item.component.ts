@@ -1,7 +1,16 @@
+import { CharacterDetailComponent } from './../../character-detail/character-detail.component';
 import { FavoriteListService } from './../../../services/favorite-list.service';
 import { Character } from 'src/app/models/marvelapi.model';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+  EventEmitter,
+} from '@angular/core';
 import { ToastService } from 'src/app/services/toast.service';
+import { CharacterDetailDirective } from 'src/app/directives/characterDetail.directive';
 
 @Component({
   selector: 'app-item',
@@ -10,6 +19,7 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class ItemComponent implements OnInit {
   @Input() character: Character = {} as Character;
+  @Output() characterClick = new EventEmitter();
 
   constructor(
     private favoriteListService: FavoriteListService,

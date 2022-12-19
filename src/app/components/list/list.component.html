@@ -1,5 +1,6 @@
 <mat-grid-list cols="3" rowHeight="400px">
     <mat-grid-tile *ngFor="let character of characters">
-        <app-item [character]="character"></app-item>
+        <app-item (characterClick)="showCharacterDetail($event)" [character]="character"></app-item>
     </mat-grid-tile>
 </mat-grid-list>
+<ng-template appCharacterDetail></ng-template>

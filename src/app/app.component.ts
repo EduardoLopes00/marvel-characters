@@ -1,9 +1,11 @@
 import { Character } from './models/marvelapi.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MarvelService } from './services/marvel.service';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
 import { sortCharactersByIsFavorite } from './utils/sortGetAllCharacterResponse';
 import { FormFiltersFields } from './models/formFilters.model';
+import { CharacterDetailDirective } from './directives/characterDetail.directive';
+import { CharacterDetailComponent } from './components/character-detail/character-detail.component';
 
 @Component({
   selector: 'app-root',

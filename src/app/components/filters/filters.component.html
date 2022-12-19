@@ -8,11 +8,18 @@
                 <input formControlName="name" matInput type="text">
 
             </mat-form-field>
-            <mat-form-field class="form-field">
-                <mat-label class="form-field-label">Name starts With</mat-label>
-                <input formControlName="nameStartsWith" matInput type="text">
 
-            </mat-form-field>
+            <div class="names-starts-and-page-box">
+                <mat-form-field class="form-field">
+                    <mat-label class="form-field-label">Name starts With</mat-label>
+                    <input formControlName="nameStartsWith" matInput type="text">
+                </mat-form-field>
+
+                <mat-form-field class="form-field">
+                    <mat-label class="form-field-label">Page</mat-label>
+                    <input formControlName="offset" matInput type="number">
+                </mat-form-field>
+            </div>
         </div>
         <div>
 

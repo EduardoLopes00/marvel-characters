@@ -1,0 +1,30 @@
+<head>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<div class='character-detail-container'>
+    <div class='character-detail-content'>
+        <div class="character-detail-header">
+            <h3>{{character.name}}</h3>
+            <span class="material-symbols-outlined" (click)="onClose.emit()">
+                close
+            </span>
+        </div>
+        <div>
+            <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" />
+
+            <div class="character-detail-infos">
+                <h2>Description</h2>
+                <p>{{character.description || 'No description provided'}}</p>
+
+                <div class="useful-links-box">
+                    <span>Useful links</span>
+
+
+                    <a *ngFor="let urlInfo of character.urls" [href]="urlInfo.url">{{urlInfo.type | titlecase}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,5 +7,6 @@
             [fontIcon]="character.isFavorite ? 'favorite' : 'favorite_border'">
         </mat-icon>
     </div>
-    <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" [alt]="character.name + ' thumb'">
+    <img (click)="characterClick.emit(character)" [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
+        [alt]="character.name + ' thumb'">
 </mat-card>

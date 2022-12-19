@@ -1,3 +1,4 @@
+import { CharacterDetailComponent } from './components/character-detail/character-detail.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -18,6 +19,9 @@ import { ToastService } from './services/toast.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { CharacterDetailDirective } from './directives/characterDetail.directive';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
     ItemComponent,
     FavoritesComponent,
     CharactersComponent,
+    CharacterDetailDirective,
+    CharacterDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +45,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
   ],
   providers: [
     ToastService,

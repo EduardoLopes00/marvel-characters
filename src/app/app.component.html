@@ -2,10 +2,9 @@
   <div class="content">
 
     <app-filters (filterClick)="onFilterClick($event)"></app-filters>
-
-
     <app-list *ngIf="!loading && characters.length > 0" [characters]="characters"></app-list>
     <mat-spinner color="black" class="spinner" *ngIf="loading"></mat-spinner>
+    <h2 *ngIf="!loading && characters.length == 0">No results found!</h2>
 
   </div>
 </div>
