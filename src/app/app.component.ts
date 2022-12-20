@@ -22,18 +22,21 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.loading = true;
 
-    this.marvelService.getCharacters().subscribe((data) => {
-      this.characters = sortCharactersByIsFavorite(data);
-      this.loading = false;
-    });
+    this.marvelService
+      .getCharacters()
+      .subscribe((data) => this.handleRequestResult(data));
   }
 
   onFilterClick(filterValues: FormFiltersFields) {
     this.loading = true;
 
-    this.marvelService.getCharacters(filterValues).subscribe((data) => {
-      this.characters = sortCharactersByIsFavorite(data);
-      this.loading = false;
-    });
+    this.marvelService
+      .getCharacters(filterValues)
+      .subscribe((data) => this.handleRequestResult(data));
+  }
+
+  handleRequestResult(data: Character[]) {
+    this.characters = sortCharactersByIsFavorite(data);
+    this.loading = false;
   }
 }
