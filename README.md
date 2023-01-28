@@ -1,6 +1,6 @@
-# Marvel Heroes
+# Marvel Characters
 
-This version is a page to organize and search for your favorite Marvel characters.
+This project is a page to organize and search for your favorite Marvel characters.
 You can add to favorite, filter, see details, etc.
 
 This project was done as a test to a vacancy in the company PremierSoft.
