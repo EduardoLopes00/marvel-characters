@@ -10,8 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FiltersComponent } from './components/filters/filters.component';
 import { ListComponent } from './components/list/list.component';
 import { ItemComponent } from './components/list/item/item.component';
-import { FavoritesComponent } from './components/favorites/favorites.component';
-import { CharactersComponent } from './components/characters/characters.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -29,8 +27,6 @@ import { CharacterDetailDirective } from './directives/characterDetail.directive
     FiltersComponent,
     ListComponent,
     ItemComponent,
-    FavoritesComponent,
-    CharactersComponent,
     CharacterDetailDirective,
     CharacterDetailComponent,
   ],
